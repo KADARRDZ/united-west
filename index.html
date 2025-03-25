@@ -164,6 +164,180 @@
             margin-top: auto;
             flex-shrink: 0;
         }
+        
+        /* الخط المتحرك المتغير الألوان */
+        .color-changing-line {
+            height: 3px;
+            width: 100%;
+            background: linear-gradient(90deg, 
+                #4285F4, 
+                #9B30FF, 
+                #FF1493, 
+                #1E00FF,
+                #4285F4);
+            background-size: 300% 300%;
+            animation: gradientShift 5s ease infinite;
+            margin: 10px 0;
+        }
+        
+        /* نص ايديهات مميزة */
+        .special-editions {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin: 10px 0;
+            background: linear-gradient(90deg, 
+                #FF0000, 
+                #FF7F00, 
+                #FFFF00, 
+                #00FF00,
+                #0000FF,
+                #4B0082,
+                #9400D3,
+                #FF0000);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: rainbow 8s linear infinite;
+            text-shadow: 0 0 5px rgba(0,0,0,0.5);
+        }
+        
+        @keyframes rainbow {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+        
+        /* الخط الجديد تحت آخر عرض */
+        .bottom-color-line {
+            height: 3px;
+            width: 100%;
+            background: linear-gradient(90deg, 
+                #4285F4, 
+                #9B30FF, 
+                #FF1493, 
+                #1E00FF,
+                #4285F4);
+            background-size: 300% 300%;
+            animation: gradientShift 5s ease infinite;
+            margin: 20px 0 0 0;
+        }
+        
+        /* النص الجديد تحت الخط */
+        .special-offers-title {
+            font-size: 2em;
+            font-weight: bold;
+            text-align: center;
+            margin: 15px 0 30px 0;
+            background: linear-gradient(90deg, 
+                #FF0000, 
+                #FF7F00, 
+                #FFFF00, 
+                #00FF00,
+                #0000FF,
+                #4B0082,
+                #9400D3,
+                #FF0000);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: rainbow 8s linear infinite;
+            text-shadow: 0 0 10px rgba(0,0,0,0.7);
+            padding: 10px 0;
+        }
+        
+        /* المربعات الجديدة */
+        .special-offers-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            padding: 0 20px 40px;
+            width: 100%;
+        }
+        
+        .special-offer-box {
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            width: 260px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            margin: 10px;
+        }
+        
+        .special-offer-image {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            height: 150px;
+            object-fit: cover;
+            object-position: center;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .special-offer-number {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
+        
+        .special-offer-label {
+            font-size: 1.1em;
+            color: #fff;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        
+        .special-buy-button {
+            background: linear-gradient(135deg, #4285F4, #1a73e8);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(66, 133, 244, 0.4);
+            display: inline-block;
+            width: 100%;
+            max-width: 200px;
+        }
+        
+        .special-buy-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(66, 133, 244, 0.6);
+        }
+        
+        /* المربع الأسود الجديد */
+        .black-offer-box {
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            width: 260px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+            margin: 10px;
+            border: 2px solid #333;
+        }
+        
+        /* المربع الجديد المضاف */
+        .blue-offer-box {
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            width: 260px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            margin: 10px;
+            border: 2px solid #4285F4;
+        }
     </style>
 </head>
 <body>
@@ -206,10 +380,51 @@
                 <h2 class="car-title">Lomberghini Urus</h2>
                 <button class="buy-button">7M شراء</button>
             </div>
+            
+            <!-- الخط الجديد المضاف -->
+            <div class="bottom-color-line"></div>
+            
+            <!-- النص الجديد المضاف -->
+            <div class="special-offers-title">ايديهات مميزة</div>
+            
+            <!-- المربعات الجديدة -->
+            <div class="special-offers-container">
+                <div class="special-offer-box">
+                    <img src="https://i.pinimg.com/736x/2d/a2/22/2da222c387059f811ff3e74a65b7af87.jpg" alt="ايديه مميز 1" class="special-offer-image">
+                    <div class="special-offer-number">رقم 1</div>
+                    <div class="special-offer-label">مميز</div>
+                    <button class="special-buy-button">4 مليون كريدت</button>
+                </div>
+                
+                <div class="special-offer-box">
+                    <img src="https://via.placeholder.com/300x150/333/fff?text=صورة+رقم+2" alt="ايديه مميز 2" class="special-offer-image">
+                    <div class="special-offer-number">رقم 2</div>
+                    <div class="special-offer-label">مميز</div>
+                    <button class="special-buy-button">3.5 مليون كريدت</button>
+                </div>
+                
+                <!-- المربع الأسود الجديد المضاف بجانب مربع رقم 2 -->
+                <div class="black-offer-box">
+                    <img src="https://via.placeholder.com/300x150/000/fff?text=صورة+سوداء" alt="ايديه مميز 3" class="special-offer-image">
+                    <div class="special-offer-number">رقم 3</div>
+                    <div class="special-offer-label">مميز</div>
+                    <button class="special-buy-button">3 مليون كريدت</button>
+                </div>
+                
+                <!-- المربع الجديد المضاف بجانب المربع الأسود -->
+                <div class="blue-offer-box">
+                    <img src="https://via.placeholder.com/300x150/1a73e8/fff?text=صورة+زرقاء" alt="ايديه مميز 4" class="special-offer-image">
+                    <div class="special-offer-number">رقم 4</div>
+                    <div class="special-offer-label">مميز</div>
+                    <button class="special-buy-button">2.5 مليون كريدت</button>
+                </div>
+            </div>
         </div>
         
         <footer>
-            United West &copy; 2023 - جميع الحقوق محفوظة
+            United West &copy; 2025 - جميع الحقوق محفوظة
+            <div class="color-changing-line"></div>
+            <div class="special-editions">عروض حصرية</div>
         </footer>
     </div>
 </body>
