@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>United West | متجر سيارات VIP</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-image: url('https://media.discordapp.net/attachments/1352079203377479762/1354106406525206621/Background_1.png?ex=67e4155d&is=67e2c3dd&hm=2ba369aba4744e4c5109e7df72316b7a2efb71d99e310d803174a015fa8c1441&=&format=webp&quality=lossless');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.6);
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            position: relative;
+            flex-shrink: 0;
+        }
+        
+        .animated-vip-title {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.8em;
+            font-weight: bold;
+            background: linear-gradient(90deg, 
+                #4285F4, 
+                #9B30FF, 
+                #FF1493, 
+                #1E00FF,
+                #4285F4);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 10px rgba(0,0,0,0.3);
+            animation: gradientShift 5s ease infinite, pulse 2s ease infinite;
+            padding: 5px 20px;
+            white-space: nowrap;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes pulse {
+            0% { transform: translateX(-50%) scale(1); }
+            50% { transform: translateX(-50%) scale(1.05); }
+            100% { transform: translateX(-50%) scale(1); }
+        }
+        
+        .discord-box {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 8px 15px;
+            border: 2px solid #7289DA;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(114, 137, 218, 0.5);
+            width: fit-content;
+        }
+        
+        .discord-link {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9em;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .discord-icon {
+            width: 20px;
+            margin-left: 8px;
+        }
+        
+        .cars-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex: 1;
+            padding: 30px 20px;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .car-box {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            width: 260px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .car-box:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+        
+        .car-image {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            height: 150px;
+            object-fit: cover;
+            object-position: center;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .car-title {
+            font-size: 1.25em;
+            margin-bottom: 15px;
+            color: #fff;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+            font-weight: bold;
+        }
+        
+        .buy-button {
+            background: linear-gradient(135deg, #4285F4, #34A853);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(66, 133, 244, 0.4);
+            display: inline-block;
+            min-width: 100px;
+        }
+        
+        .buy-button:hover {
+            transform: scale(1.08);
+            box-shadow: 0 6px 15px rgba(66, 133, 244, 0.6);
+        }
+        
+        footer {
+            padding: 20px;
+            text-align: center;
+            font-size: 0.8em;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: auto;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay">
+        <div class="top-bar">
+            <div class="animated-vip-title">متجر سيارات VIP</div>
+            <div class="discord-box">
+                <a href="https://discord.gg/qFrgP44TZ6" class="discord-link" target="_blank">
+                    <img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a6a49cf127bf92de1e2_icon_clyde_blurple_RGB.png" alt="Discord" class="discord-icon">
+                    ديسكورد خاص بنا
+                </a>
+            </div>
+        </div>
+        
+        <div class="cars-container">
+            <!-- Porsche Cayenne -->
+            <div class="car-box">
+                <img src="https://media.discordapp.net/attachments/1352079203377479762/1354115186247733369/thb_1511375490_gtasa_2017-11-22_01-50-03-090.jpg?ex=67e41d8a&is=67e2cc0a&hm=52d9dedfb314e1e1b22a73bd11d2829d101e45504f513aca92a4db680149d838&=&format=webp" alt="Porsche Cayenne" class="car-image">
+                <h2 class="car-title">Porsche Cayenne 2017</h2>
+                <button class="buy-button">8M شراء</button>
+            </div>
+            
+            <!-- BMW M3 E24 -->
+            <div class="car-box">
+                <img src="https://media.discordapp.net/attachments/1352079203377479762/1354115186507907083/thb_1669981763_mta-screen_2022-12-01_01-26-05.jpg?ex=67e41d8a&is=67e2cc0a&hm=c05ef69805d3ff6677b70366f39eaff2ec13b4a4e6fac7d8f76042ea7740e2cf&=&format=webp" alt="BMW M3" class="car-image">
+                <h2 class="car-title">BMW M3 E24 2024</h2>
+                <button class="buy-button">10M شراء</button>
+            </div>
+            
+            <!-- BMW M3 GTR -->
+            <div class="car-box">
+                <img src="https://media.discordapp.net/attachments/1352079203377479762/1354115187132858439/thb_1703881577_Screenshot_20231229_143257.jpg?ex=67e41d8a&is=67e2cc0a&hm=7c8f07532c2a672642af1b2fa9f969512da4253cfa3aecc71c204ca0e491c308&=&format=webp" alt="BMW M3 GTR" class="car-image">
+                <h2 class="car-title">BMW M3 GTR</h2>
+                <button class="buy-button">5M شراء</button>
+            </div>
+            
+            <!-- Lomberghini Urus -->
+            <div class="car-box">
+                <img src="https://media.discordapp.net/attachments/1352079203377479762/1354115186822484138/thb_1699981236_gallery49.jpg?ex=67e41d8a&is=67e2cc0a&hm=66518480523142bfea245e9479c3fd7c6c204c8ca5419d2b2f55a095c3e48170&=&format=webp" alt="Lomberghini Urus" class="car-image">
+                <h2 class="car-title">Lomberghini Urus</h2>
+                <button class="buy-button">7M شراء</button>
+            </div>
+        </div>
+        
+        <footer>
+            United West &copy; 2023 - جميع الحقوق محفوظة
+        </footer>
+    </div>
+</body>
+</html>
