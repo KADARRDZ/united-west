@@ -647,7 +647,834 @@
             
             // إنشاء رسالة Discord
             const discordMessage = {
-                content: '*طلب جديد تم استلامه*',
+                content: 'طلب جديد تم استلامه',
+                embeds: [{
+                    title: 'تفاصيل الطلب',
+                    color: 0x0099ff,
+                    fields: [
+                        {
+                            name: 'نوع الطلب',
+                            value: requestType,
+                            inline: true
+                        },
+                        {
+                            name: 'اسم اللاعب',
+                            value: playerName,
+                            inline: true
+                        },
+                        {
+                            name: 'الآي دي',
+                            value: playerID,
+                            inline: true
+                        },
+                        {
+                            name: 'معلومات إضافية',
+                            value: additionalInfo || 'لا يوجد',
+                            inline: false
+                        },
+                        {
+                            name: 'وقت الطلب',
+                            value: new Date().toLocaleString(),
+                            inline: false
+                        }
+                    ],
+                    thumbnail: {
+                        url: 'https://media.discordapp.net/attachments/1352079203377479762/1355907421071216670/Z.png?ex=67eaa2b0&is=67e95130&hm=2133d8cc2c5edb84ea8c32ab45813e8abf9b7baa3ca90f3b172a5e6d5f8adf8d&=&format=webp&quality=lossless'
+                    }
+                }]
+            };
+            
+            try {
+                // إرسال الطلب إلى Discord
+                const response = await fetch(DISCORD_WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(discordMessage),
+                });
+                
+                if (response.ok) {
+                    alert('تم إرسال طلبك بنجاح! سنتواصل معك قريبًا.');
+                } else {
+                    alert('حدث خطأ أثناء إرسال الطلب. يرجى المحاولة مرة أخرى.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('حدث خطأ أثناء إرسال الطلب. يرجى المحاولة مرة أخرى.');
+            }
+            
+            requestFormContainer.style.display = 'none';
+            requestForm.reset();
+        });
+        
+        // Close form when clicking outside
+        requestFormContainer.addEventListener('click', (e) => {
+            if (e.target === requestFormContainer) {
+                requestFormContainer.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
+media.discordapp.net
+Vous avez envoyé
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galaxy Network Rp | متجر </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-image: url('https://media.discordapp.net/attachments/1352079203377479762/1355907208805617857/9k.png?ex=67eaa27e&is=67e950fe&hm=325af0e66bc4ef3bcadcca90d18ed1985d015c6e0493e6591afa693f948b4970&=&format=webp&quality=lossless');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.6);
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            position: relative;
+            flex-shrink: 0;
+        }
+        
+        .top-buttons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .request-button {
+            background: linear-gradient(135deg, #FF5722, #FF9800);
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(255, 87, 34, 0.4);
+        }
+        
+        .request-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(255, 87, 34, 0.6);
+        }
+        
+        .discord-login-button {
+            background: #5865F2;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(88, 101, 242, 0.4);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .discord-login-button:hover {
+            background: #4752C4;
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(88, 101, 242, 0.6);
+        }
+        
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .user-avatar {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 2px solid #7289DA;
+        }
+        
+        .user-name {
+            font-weight: bold;
+            color: white;
+        }
+        
+        .animated-vip-title {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.8em;
+            font-weight: bold;
+            background: linear-gradient(90deg, 
+                #4285F4, 
+                #9B30FF, 
+                #FF1493, 
+                #1E00FF,
+                #4285F4);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 10px rgba(0,0,0,0.3);
+            animation: gradientShift 5s ease infinite, pulse 2s ease infinite;
+            padding: 5px 20px;
+            white-space: nowrap;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes pulse {
+            0% { transform: translateX(-50%) scale(1); }
+            50% { transform: translateX(-50%) scale(1.05); }
+            100% { transform: translateX(-50%) scale(1); }
+        }
+        
+        .discord-box {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 8px 15px;
+            border: 2px solid #7289DA;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(114, 137, 218, 0.5);
+            width: fit-content;
+        }
+        
+        .discord-link {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9em;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .discord-icon {
+            width: 20px;
+            margin-left: 8px;
+        }
+        
+        .cars-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex: 1;
+            padding: 30px 20px;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .car-box {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            width: 260px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .car-box:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+        
+        .car-image {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            height: 150px;
+            object-fit: cover;
+            object-position: center;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .car-title {
+            font-size: 1.25em;
+            margin-bottom: 15px;
+            color: #fff;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+            font-weight: bold;
+        }
+        
+        .buy-button {
+            background: linear-gradient(135deg, #4285F4, #34A853);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(66, 133, 244, 0.4);
+            display: inline-block;
+            min-width: 100px;
+        }
+        
+        .buy-button:hover {
+            transform: scale(1.08);
+            box-shadow: 0 6px 15px rgba(66, 133, 244, 0.6);
+        }
+        
+        footer {
+            padding: 20px;
+            text-align: center;
+            font-size: 0.8em;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: auto;
+            flex-shrink: 0;
+        }
+        
+        .color-changing-line {
+            height: 3px;
+            width: 100%;
+            background: linear-gradient(90deg, 
+                #4285F4, 
+                #9B30FF, 
+                #FF1493, 
+                #1E00FF,
+                #4285F4);
+            background-size: 300% 300%;
+            animation: gradientShift 5s ease infinite;
+            margin: 10px 0;
+        }
+        
+        .special-editions {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin: 10px 0;
+            background: linear-gradient(90deg, 
+                #FF0000, 
+                #FF7F00, 
+                #FFFF00, 
+                #00FF00,
+                #0000FF,
+                #4B0082,
+                #9400D3,
+                #FF0000);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: rainbow 8s linear infinite;
+            text-shadow: 0 0 5px rgba(0,0,0,0.5);
+        }
+        
+        @keyframes rainbow {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+        
+        .bottom-color-line {
+            height: 3px;
+            width: 100%;
+            background: linear-gradient(90deg, 
+                #4285F4, 
+                #9B30FF, 
+                #FF1493, 
+                #1E00FF,
+                #4285F4);
+            background-size: 300% 300%;
+            animation: gradientShift 5s ease infinite;
+            margin: 20px 0 0 0;
+        }
+        
+        .special-offers-title {
+            font-size: 2em;
+            font-weight: bold;
+            text-align: center;
+            margin: 15px 0 30px 0;
+            background: linear-gradient(90deg, 
+                #FF0000, 
+                #FF7F00, 
+                #FFFF00, 
+                #00FF00,
+                #0000FF,
+                #4B0082,
+                #9400D3,
+                #FF0000);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: rainbow 8s linear infinite;
+            text-shadow: 0 0 10px rgba(0,0,0,0.7);
+            padding: 10px 0;
+        }
+        
+        .special-offers-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            padding: 0 20px 40px;
+            width: 100%;
+        }
+        
+        .special-offer-box {
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            width: 260px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            margin: 10px;
+        }
+        
+        .special-offer-image {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            height: 150px;
+            object-fit: cover;
+            object-position: center;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .special-offer-number {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
+        
+        .special-offer-label {
+            font-size: 1.1em;
+            color: #fff;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        
+        .special-buy-button {
+            background: linear-gradient(135deg, #4285F4, #1a73e8);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(66, 133, 244, 0.4);
+            display: inline-block;
+            width: 100%;
+            max-width: 200px;
+        }
+        
+        .special-buy-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(66, 133, 244, 0.6);
+        }
+        
+        .black-offer-box {
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            width: 260px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+            margin: 10px;
+            border: 2px solid #333;
+        }
+        
+        .blue-offer-box {
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            width: 260px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            margin: 10px;
+            border: 2px solid #4285F4;
+        }
+        
+        .rolls-royce-box {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            width: 260px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            margin: 10px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        /* Request Form Styles */
+        .request-form-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .request-form {
+            background-color: rgba(0, 0, 0, 0.9);
+            border-radius: 10px;
+            padding: 30px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .form-title {
+            text-align: center;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+            color: #fff;
+        }
+        
+        .form-select, .form-input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 5px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1em;
+        }
+        
+        .form-select option {
+            background-color: #333;
+            color: white;
+        }
+        
+        .form-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        
+        .submit-button {
+            background: linear-gradient(135deg, #4CAF50, #2E7D32);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .submit-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(76, 175, 80, 0.5);
+        }
+        
+        .cancel-button {
+            background: linear-gradient(135deg, #F44336, #C62828);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .cancel-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(244, 67, 54, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay">
+        <div class="top-bar">
+            <div class="top-buttons">
+                <button class="request-button" id="requestButton">طلب</button>
+                <!-- زر تسجيل الدخول عبر Discord -->
+                <button class="discord-login-button" id="discordLoginButton">
+                    <i class="fab fa-discord"></i> تسجيل الدخول
+                </button>
+                <!-- معلومات المستخدم بعد تسجيل الدخول -->
+                <div class="user-profile" id="userProfile" style="display: none;">
+                    <img src="" alt="صورة المستخدم" class="user-avatar" id="userAvatar">
+                    <span class="user-name" id="userName"></span>
+                </div>
+            </div>
+            <div class="animated-vip-title">Galaxy Rp</div>
+            <div class="discord-box">
+                <a href="https://discord.gg/qFrgP44TZ6" class="discord-link" target="_blank">
+                    <img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a6a49cf127bf92de1e2_icon_clyde_blurple_RGB.png" alt="Discord" class="discord-icon">
+                    ديسكورد خاص بنا
+                </a>
+            </div>
+        </div>
+        
+        <div class="cars-container">
+            <!-- Porsche Cayenne -->
+            <div class="car-box">
+                <img src="https://media.discordapp.net/attachments/1352079203377479762/1354115186247733369/thb_1511375490_gtasa_2017-11-22_01-50-03-090.jpg?ex=67e617ca&is=67e4c64a&hm=265709b1b9c99009d909e9a37a910e496bff866ed2ea8a1dc1ed37c13d273c4f&format=webp" alt="Porsche Cayenne" class="car-image">
+                <h2 class="car-title">Porsche Cayenne 2017</h2>
+                <button class="buy-button">8M شراء</button>
+            </div>
+            
+            <!-- BMW M3 E24 -->
+            <div class="car-box">
+                <img src="https://media.discordapp.net/attachments/1352079203377479762/1354115186507907083/thb_1669981763_mta-screen_2022-12-01_01-26-05.jpg?ex=67e617ca&is=67e4c64a&hm=60cd245204c947c8d4895218a4e9870c4d410f626813c14cf0a2854f5a4bb061&format=webp" alt="BMW M3" class="car-image">
+                <h2 class="car-title">BMW M3 E24 2024</h2>
+                <button class="buy-button">10M شراء</button>
+            </div>
+            
+            <!-- BMW M3 GTR -->
+            <div class="car-box">
+                <img src="https://media.discordapp.net/attachments/1352079203377479762/1354115187132858439/thb_1703881577_Screenshot_20231229_143257.jpg?ex=67e617ca&is=67e4c64a&hm=e0c86b959661a89c0511d2d1ea062426479857a89a9c8808ae127f5075e521b6&format=webp" alt="BMW M3 GTR" class="car-image">
+                <h2 class="car-title">BMW M3 GTR</h2>
+                <button class="buy-button">5M شراء</button>
+            </div>
+            
+            <!-- Lomberghini Urus -->
+            <div class="car-box">
+                <img src="https://media.discordapp.net/attachments/1352079203377479762/1354115186822484138/thb_1699981236_gallery49.jpg?ex=67e617ca&is=67e4c64a&hm=b6c623a3c5ebbb37944758065d1e72c33c77578312920ee665bf49d9275a5d21&format=webp" alt="Lomberghini Urus" class="car-image">
+                <h2 class="car-title">Lomberghini Urus</h2>
+                <button class="buy-button">7M شراء</button>
+            </div>
+            
+            <!-- Rolls Royce 2025 -->
+            <div class="rolls-royce-box">
+                <img src="https://media.discordapp.net/attachments/1352079203377479762/1354601198770061452/thb_1636745246_IMG-20211103-WA0001.png?ex=67e68aed&is=67e5396d&hm=028c71dc9702fc40c94161c8b0e3d2a9748a77d0e5b9d9e3c7606f37c0839961&=&format=webp&quality=lossless" alt="Rolls Royce 2025" class="car-image">
+                <h2 class="car-title">Rolls Royce 2025</h2>
+                <button class="buy-button">20M شراء</button>
+            </div>
+            
+            <!-- Toyota GR Supra -->
+            <div class="car-box">
+                <img src="https://media.discordapp.net/attachments/1352079203377479762/1354601986909143071/thb_1613053264_enb202021-02-112011-42-13-431.png?ex=67e68ba8&is=67e53a28&hm=96887b759cf49d08f6cf9ef9b23c8365a652129f35fa673ed9ba0db5221a6216&=&format=webp&quality=lossless" alt="Toyota GR Supra" class="car-image">
+                <h2 class="car-title">Toyota GR Supra</h2>
+                <button class="buy-button">10M شراء</button>
+            </div>
+            
+            <div class="bottom-color-line"></div>
+            
+            <div class="special-offers-title">ايديهات مميزة</div>
+            
+            <div class="special-offers-container">
+                <div class="special-offer-box">
+                    <img src="https://i.pinimg.com/736x/2d/a2/22/2da222c387059f811ff3e74a65b7af87.jpg" alt="ايديه مميز 1" class="special-offer-image">
+                    <div class="special-offer-number">رقم 1</div>
+                    <div class="special-offer-label">مميز</div>
+                    <button class="special-buy-button">50 مليون كريدت</button>
+                </div>
+                
+                <div class="special-offer-box">
+                    <img src="https://via.placeholder.com/300x150/333/fff?text=صورة+رقم+2" alt="ايديه مميز 2" class="special-offer-image">
+                    <div class="special-offer-number">رقمين 2</div>
+                    <div class="special-offer-label">مميز</div>
+                    <button class="special-buy-button">30 مليون كريدت</button>
+                </div>
+                
+                <div class="black-offer-box">
+                    <img src="https://via.placeholder.com/300x150/000/fff?text=صورة+سوداء" alt="ايديه مميز 3" class="special-offer-image">
+                    <div class="special-offer-number">ارقام 3</div>
+                    <div class="special-offer-label">مميز</div>
+                    <button class="special-buy-button">20 مليون كريدت</button>
+                </div>
+                
+                <div class="blue-offer-box">
+                    <img src="https://via.placeholder.com/300x150/1a73e8/fff?text=صورة+زرقاء" alt="ايديه مميز 4" class="special-offer-image">
+                    <div class="special-offer-number">ارقام4</div>
+                    <div class="special-offer-label">مميز</div>
+                    <button class="special-buy-button">10 مليون كريدت</button>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            United West &copy; 2025 - جميع الحقوق محفوظة
+            <div class="color-changing-line"></div>
+            <div class="special-editions">dev./birles</div>
+        </footer>
+    </div>
+    
+    <!-- Request Form -->
+    <div class="request-form-container" id="requestFormContainer">
+        <div class="request-form">
+            <h2 class="form-title">نموذج طلب</h2>
+            <form id="requestForm">
+                <div class="form-group">
+                    <label for="requestType" class="form-label">نوع الطلب:</label>
+                    <select id="requestType" class="form-select" required>
+                        <option value="" selected disabled>اختر نوع الطلب</option>
+                        
+                        <!-- Cars -->
+                        <optgroup label="السيارات">
+                            <option value="Porsche Cayenne 2017">Porsche Cayenne 2017</option>
+                            <option value="BMW M3 E24 2024">BMW M3 E24 2024</option>
+                            <option value="BMW M3 GTR">BMW M3 GTR</option>
+                            <option value="Lomberghini Urus">Lomberghini Urus</option>
+                            <option value="Rolls Royce 2025">Rolls Royce 2025</option>
+                            <option value="Toyota GR Supra">Toyota GR Supra</option>
+                        </optgroup>
+                        
+                        <!-- Special Offers -->
+                        <optgroup label="ايديهات مميزة">
+                            <option value="رقم 1">رقم 1</option>
+                            <option value="رقمين 2">رقمين 2</option>
+                            <option value="ارقام 3">ارقام 3</option>
+                            <option value="ارقام4">ارقام4</option>
+                        </optgroup>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="playerName" class="form-label">اسم اللاعب:</label>
+                    <input type="text" id="playerName" class="form-input" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="playerID" class="form-label">الآي دي:</label>
+                    <input type="text" id="playerID" class="form-input" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="additionalInfo" class="form-label">معلومات إضافية:</label>
+                    <textarea id="additionalInfo" class="form-input" rows="4"></textarea>
+                </div>
+                
+                <div class="form-buttons">
+                    <button type="submit" class="submit-button">إرسال الطلب</button>
+                    <button type="button" class="cancel-button" id="cancelButton">إلغاء</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        // Request Form Handling
+        const requestButton = document.getElementById('requestButton');
+        const requestFormContainer = document.getElementById('requestFormContainer');
+        const cancelButton = document.getElementById('cancelButton');
+        const requestForm = document.getElementById('requestForm');
+        
+        // رابط الويب هوك الخاص بك
+        const DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/1355907943106871468/h4Xnjj1F6-LiZOxcRkahX8p4r3OQ7hSUFLtmKNb5mZjukalokqpIb5VehDsBI3RSBoVV';
+        
+        // إعدادات تسجيل الدخول عبر Discord
+        const DISCORD_CLIENT_ID = '1354866172973285559';
+        const DISCORD_REDIRECT_URI = 'https://kadarrdz.github.io/united-west/';
+        const DISCORD_SCOPE = 'identify email';
+        
+        // دالة لتسجيل الدخول عبر Discord
+        function loginWithDiscord() {
+            window.location.href = https://discord.com/api/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&redirect_uri=${encodeURIComponent(DISCORD_REDIRECT_URI)}&response_type=token&scope=${encodeURIComponent(DISCORD_SCOPE)};
+        }
+        
+        // دالة للتحقق من وجود token في URL بعد إعادة التوجيه
+        function checkForToken() {
+            const hash = window.location.hash.substring(1);
+            const params = new URLSearchParams(hash);
+            const accessToken = params.get('access_token');
+            
+            if (accessToken) {
+                // إخفاء زر التسجيل وعرض معلومات المستخدم
+                document.getElementById('discordLoginButton').style.display = 'none';
+                document.getElementById('userProfile').style.display = 'flex';
+                
+                // جلب معلومات المستخدم من Discord
+                fetch('https://discord.com/api/users/@me', {
+                    headers: {
+                        'Authorization': Bearer ${accessToken}
+                    }
+                })
+                .then(response => response.json())
+                .then(user => {
+                    // عرض معلومات المستخدم
+                    document.getElementById('userName').textContent = user.username;
+                    if (user.avatar) {
+                        document.getElementById('userAvatar').src = https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png;
+                    } else {
+                        document.getElementById('userAvatar').src = 'https://cdn.discordapp.com/embed/avatars/0.png';
+                    }
+                    
+                    // يمكنك هنا إرسال معلومات المستخدم إلى الخادم الخاص بك إذا لزم الأمر
+                    console.log('تم تسجيل الدخول بنجاح:', user);
+                })
+                .catch(error => {
+                    console.error('Error fetching user data:', error);
+                });
+                
+                // إزالة token من عنوان URL
+                history.pushState("", document.title, window.location.pathname);
+            }
+        }
+        
+        // تعيين حدث النقر على زر تسجيل الدخول
+        document.getElementById('discordLoginButton').addEventListener('click', loginWithDiscord);
+        
+        // التحقق من وجود token عند تحميل الصفحة
+        window.addEventListener('DOMContentLoaded', checkForToken);
+        
+        requestButton.addEventListener('click', () => {
+            requestFormContainer.style.display = 'flex';
+        });
+        
+        cancelButton.addEventListener('click', () => {
+            requestFormContainer.style.display = 'none';
+        });
+        
+        requestForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // جمع بيانات النموذج
+            const requestType = document.getElementById('requestType').value;
+            const playerName = document.getElementById('playerName').value;
+            const playerID = document.getElementById('playerID').value;
+            const additionalInfo = document.getElementById('additionalInfo').value;
+            
+            // إنشاء رسالة Discord
+            const discordMessage = {
+                content: 'طلب جديد تم استلامه',
                 embeds: [{
                     title: 'تفاصيل الطلب',
                     color: 0x0099ff,
